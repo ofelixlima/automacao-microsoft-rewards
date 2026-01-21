@@ -1,6 +1,6 @@
 from time import sleep
 from random import randint
-from reautogui import mouseClique, apertarBotao, atalhoTeclado, escrever, moverPara, tamanhoTela
+from reautogui import mouseClique, apertarBotao, atalhoTeclado, escrever, moverPara
 
 def abrirEdge():
     print("Abrindo o Edge...")
@@ -28,11 +28,11 @@ def pesquisar():
             escrever(pesquisado[len(pesquisado)-1])
             print(pesquisado, flush=True)
             g = len(pesquisado)-1
-            while g > 0 and buscas[g] in pesquisado:
-                print(f'A pesquisa "{atual}" já foi feita. Fazendo uma nova...', flush=True)
-                atual = buscas[randint(0, len(buscas))]
-                escrever(atual)
-                g = g - 1
+        while g > 0 and buscas[g] in pesquisado:
+            print(f'A pesquisa "{atual}" já foi feita. Fazendo uma nova...', flush=True)
+            nova = buscas[randint(0, len(buscas))]
+            escrever(nova)
+            g = g - 1
         apertarBotao('enter')
         sleep(5)
         c = c + 1
@@ -87,8 +87,6 @@ buscas = ["qual foi a primeira palavra registrada da historia",
     "github nao sincronizando com meu vs code"
 ]
 
-print("Automação ajustada para", end=" ")
-tamanhoTela()
 abrirEdge()
 pesquisar()
 fecharEdge()
