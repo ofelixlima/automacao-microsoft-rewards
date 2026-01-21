@@ -2,6 +2,7 @@ from time import sleep
 from random import randint
 from reautogui import mouseClique, apertarBotao, atalhoTeclado, escrever, moverPara
 
+
 def abrirEdge():
     print("Abrindo o Edge...")
     apertarBotao('win')
@@ -9,7 +10,8 @@ def abrirEdge():
     escrever('Edge')
     sleep(2)
     apertarBotao('enter')
-    
+
+
 def pesquisar():
     print("Iniciando pesquisas...")
     c = 0
@@ -28,15 +30,17 @@ def pesquisar():
             escrever(pesquisado[len(pesquisado)-1])
             print(pesquisado, flush=True)
             g = len(pesquisado)-1
-        while g > 0 and buscas[g] in pesquisado:
-            print(f'A pesquisa "{atual}" já foi feita. Fazendo uma nova...', flush=True)
-            nova = buscas[randint(0, len(buscas))]
-            escrever(nova)
-            g = g - 1
+            while g > 0 and buscas[g] in pesquisado:
+                print(f'A pesquisa "{atual}" já foi feita. Fazendo uma nova...', flush=True)
+                while atual in buscas[g]:
+                    atual = buscas[randint(0, len(buscas))]
+                    escrever(atual)
+                g = g - 1
         apertarBotao('enter')
         sleep(5)
         c = c + 1
     print(pesquisado, flush=True)
+
 
 def fecharEdge():
     sleep(2)
