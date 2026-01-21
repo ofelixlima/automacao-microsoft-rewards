@@ -18,9 +18,9 @@ def pesquisar():
     pesquisado = []
     while c >= 0 and c <= len(buscas)-1: 
         moverPara(257, 17)
-        sleep(5)
+        sleep(2)
         mouseClique()
-        sleep(5)
+        sleep(2)
         apertarBotao('delete')
         atual = buscas[randint(0, len(buscas)-1)]
         while atual not in pesquisado and len(pesquisado) >= 0:
@@ -33,11 +33,12 @@ def pesquisar():
             while g > 0 and buscas[g] in pesquisado:
                 print(f'A pesquisa "{atual}" já foi feita. Fazendo uma nova...', flush=True)
                 while atual in buscas[g]:
+                    print(f'Pesquisa realizada... substituindo por pesquisa não realizada...', flush=True)
                     atual = buscas[randint(0, len(buscas))]
                     escrever(atual)
                 g = g - 1
         apertarBotao('enter')
-        sleep(5)
+        sleep(2)
         c = c + 1
     print(pesquisado, flush=True)
 
