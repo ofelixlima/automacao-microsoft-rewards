@@ -84,7 +84,8 @@ buscas = ["qual foi a primeira palavra registrada da historia",
     "e se o messi fosse o melhor jogador de futebol do mundo",
     "como conseguir empregos usando Linkedin",
     "qual e o metodo de ensino usado nas escolas e porque e tao ruim",
-    "github nao sincronizando com meu vs code"
+    "github nao sincronizando com meu vs code",
+    "porque a aparencia do meu vs code fica bugada o que eu preciso instalar para resolver"
 ]
 
 abrirEdge()
