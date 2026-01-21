@@ -1,6 +1,6 @@
 from time import sleep
 from random import randint
-from config import mouseClique, tamanhoTela, posicaoMouse, moverMouse, apertarBotao, atalhoTeclado, cliqueDuplo, escrever, mouseCliqueAqui, moverPara, segurarBotao, soltarBotao
+from funcoes import mouseClique, tamanhoTela, posicaoMouse, moverMouse, apertarBotao, atalhoTeclado, cliqueDuplo, escrever, mouseCliqueAqui, moverPara, segurarBotao, soltarBotao
 
 def abrirEdge():
     apertarBotao('win')
