@@ -9,7 +9,6 @@ def abrirEdge():
     sleep(5)
     apertarBotao('enter')
 
-
 def pesquisar():
     print("Iniciando pesquisas...")
     c = 0
@@ -32,7 +31,7 @@ def pesquisar():
                 print(f'A pesquisa "{atual}" já foi feita. Fazendo uma nova...', flush=True)
                 while atual in buscas[g]:
                     print(f'Pesquisa realizada... substituindo por pesquisa não realizada...', flush=True)
-                    atual = buscas[randint(0, len(buscas))]
+                    atual = buscas[randint(0, len(buscas))-1]
                     escrever(atual)
                 g = g - 1
         apertarBotao('enter')
@@ -40,8 +39,9 @@ def pesquisar():
         c = c + 1
     print(pesquisado, flush=True)
 
-
 def fecharEdge():
+    moverPara(257, 17)
+    mouseClique()
     sleep(5)
     atalhoTeclado('ctrl', 'w')
     print(f"Edge encerrado!")
