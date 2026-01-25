@@ -116,13 +116,12 @@ def fecharEdge():
     atalhoTeclado('alt', 'f4')
     print(f"Edge encerrado!")
 
+def tempoRealMouse():
+    while True:
+        posicaoMouse()
+        sleep(0.5)
+
 abrirEdge()
 pesquisar()
 apagarHistorico()
 fecharEdge()
-
-
-'''Testes de Posicão do Mouse
-while True:
-    posicaoMouse()
-    sleep(0.5)'''
