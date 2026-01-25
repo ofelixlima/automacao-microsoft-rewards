@@ -1,52 +1,19 @@
 from time import sleep
 from random import randint
-from reautogui import mouseClique, apertarBotao, atalhoTeclado, escrever, moverPara
+from reautogui import mouseClique, apertarBotao, atalhoTeclado, escrever, moverPara, posicaoMouse
 def abrirEdge():
     print("Abrindo o Edge...")
     atalhoTeclado('win', 'r')
-    sleep(5)
+    sleep(randint(2, 5))
     escrever('msedge.exe')
-    sleep(5)
+    sleep(randint(2, 5))
     apertarBotao('enter')
 
 def pesquisar():
     print("Iniciando pesquisas...")
     c = 0
     pesquisado = []
-    while c >= 0 and c <= len(buscas)-1: 
-        moverPara(257, 17)
-        sleep(5)
-        mouseClique()
-        sleep(5)
-        apertarBotao('delete')
-        atual = buscas[randint(0, len(buscas)-1)]
-        while atual not in pesquisado and len(pesquisado) >= 0:
-            print(f'Adicionando "{buscas[randint(0, len(buscas)-1)]}" à lista de pesquisados...', flush=True)
-            pesquisado.append(atual)
-            print(pesquisado[len(pesquisado)-1], flush=True)
-            escrever(pesquisado[len(pesquisado)-1])
-            print(pesquisado, flush=True)
-            g = len(pesquisado)-1
-            while g > 0 and buscas[g] in pesquisado:
-                print(f'A pesquisa "{atual}" já foi feita. Fazendo uma nova...', flush=True)
-                while atual in buscas[g]:
-                    print(f'Pesquisa realizada... substituindo por pesquisa não realizada...', flush=True)
-                    atual = buscas[randint(0, len(buscas))-1]
-                    escrever(atual)
-                g = g - 1
-        apertarBotao('enter')
-        sleep(5)
-        c = c + 1
-    print(pesquisado, flush=True)
-
-def fecharEdge():
-    moverPara(257, 17)
-    mouseClique()
-    sleep(5)
-    atalhoTeclado('ctrl', 'w')
-    print(f"Edge encerrado!")
-
-buscas = ["qual foi a primeira palavra registrada da historia",
+    buscas = ["qual foi a primeira palavra registrada da historia",
     "crash bandicoot",
     "rio claro sp hoje",
     "michael jackson",
@@ -106,8 +73,56 @@ buscas = ["qual foi a primeira palavra registrada da historia",
     "site:linkedin.com vagas de desenvolvedor python",
     "como atrair um gato filhote ate voce",
     "como acalmar gato ultra hiperativo"
-]
+    ]
+    while c >= 0 and c <= len(buscas)-1:
+        moverPara(257, 17)
+        sleep(randint(2, 5))
+        mouseClique()
+        sleep(randint(2, 5))
+        apertarBotao('delete')
+        atual = buscas[randint(0, len(buscas)-1)]
+        while atual not in pesquisado and len(pesquisado) >= 0:
+            print(f'Adicionando "{buscas[randint(0, len(buscas)-1)]}" à lista de pesquisados...', flush=True)
+            pesquisado.append(atual)
+            print(pesquisado[len(pesquisado)-1], flush=True)
+            escrever(pesquisado[len(pesquisado)-1])
+            print(pesquisado, flush=True)
+            g = len(pesquisado)-1
+            while g > 0 and buscas[g] in pesquisado:
+                print(f'A pesquisa "{atual}" já foi feita. Fazendo uma nova...', flush=True)
+                while atual in buscas[g]:
+                    print(f'Pesquisa realizada... substituindo por pesquisa não realizada...', flush=True)
+                    atual = buscas[randint(0, len(buscas))-1]
+                    escrever(atual)
+                g = g - 1
+        apertarBotao('enter')
+        sleep(randint(2, 5))
+        c = c + 1
+    print(pesquisado, flush=True)
+
+def apagarHistorico():
+    print("Apagando seu histórico da última hora...")
+    sleep(randint(5, 10))
+    atalhoTeclado('ctrl', 'h')
+    sleep(randint(5, 10))
+    moverPara(1242, 66)
+    mouseClique()
+    sleep(randint(5, 10))
+    moverPara(642, 666)
+    mouseClique()
+
+def fecharEdge():
+    sleep(randint(5, 10))
+    atalhoTeclado('alt', 'f4')
+    print(f"Edge encerrado!")
 
 abrirEdge()
 pesquisar()
+apagarHistorico()
 fecharEdge()
+
+
+'''Testes de Posicão do Mouse
+while True:
+    posicaoMouse()
+    sleep(0.5)'''
