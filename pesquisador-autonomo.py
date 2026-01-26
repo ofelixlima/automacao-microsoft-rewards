@@ -26,9 +26,14 @@ def pesquisadorAutonomo():
         print("Iniciando pesquisas...")
         c = 0
         pesquisado = []
+        atalhoTeclado('alt', 'tab')
+        file = str(input("Informe o caminho do arquivo de pesquisas: ")).strip()
         with open(file, 'r', encoding='utf-8') as arquivo:
             buscas = [linha.strip() for linha in arquivo.readlines()]
-        while c >= 0 and c <= 26:
+        print(file)
+        sleep(randint(2, 5))
+        atalhoTeclado('alt', 'tab')
+        while c >= 0 and c <= len(buscas)-1:
             moverPara(257, 17)
             sleep(randint(2, 5))
             mouseClique()
@@ -51,7 +56,7 @@ def pesquisadorAutonomo():
                     g = g - 1
             apertarBotao('enter')
             sleep(randint(2, 5))
-            c = c + 1
+            c += 1
         print(pesquisado, flush=True)
 
     def apagarHistorico():
@@ -80,6 +85,5 @@ def pesquisadorAutonomo():
     apagarHistorico()
     fecharEdge()
 
-file = str(input("Informe o caminho do arquivo de pesquisas: ")).strip()
-print(file)
+
 pesquisadorAutonomo()
